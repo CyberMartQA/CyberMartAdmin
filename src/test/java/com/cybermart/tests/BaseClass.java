@@ -36,7 +36,6 @@ public class BaseClass {
 	String browser = "chrome";
 	String baseURL = "https://admin.cybermart.com/auth/login";
 
-
 	private static JavascriptExecutor jsExecutor;
 
 	@BeforeClass
@@ -49,7 +48,7 @@ public class BaseClass {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 				driver.get(baseURL);
-//				driver.manage().window().maximize();
+				driver.manage().window().maximize();
 			} else if (browser.equalsIgnoreCase("firefox")) {
 				driver = new FirefoxDriver();
 				driver.get(baseURL);
@@ -248,9 +247,12 @@ public class BaseClass {
 	}
 
 //	CUSTOM METHOD TO ENTER INVALID STATIC EMAILS INTO EMAIL FIELD AT PAGE
-	public void staticInvalidEmailGenerator(WebElement emailField, WebElement submitButton, WebElement emailErrorElement, String expectedEmailErrorText) {
+	public void staticInvalidEmailGenerator(WebElement emailField, WebElement submitButton,
+			WebElement emailErrorElement, String expectedEmailErrorText) {
 
-		String[] listOfInvalidEmails = {"plainaddress123", "123@1123.1123", "a@a.a", "email@example,com", "@example.com", "Joe Smith <email@example.com>", "email.example.com", "email.@example.com", "email..email@example.com"};
+		String[] listOfInvalidEmails = { "plainaddress123", "123@1123.1123", "a@a.a", "email@example,com",
+				"@example.com", "Joe Smith <email@example.com>", "email.example.com", "email.@example.com",
+				"email..email@example.com" };
 
 		for (String listOfInvalidEmail : listOfInvalidEmails) {
 
@@ -266,9 +268,11 @@ public class BaseClass {
 	}
 
 //	CUSTOM METHOD TO ENTER VALID STATIC EMAILS INTO EMAIL FIELD AT PAGE
-	public void staticValidEmailGenerator(WebElement emailField, WebElement submitButton, WebElement emailErrorElement, String expectedEmailErrorText) {
+	public void staticValidEmailGenerator(WebElement emailField, WebElement submitButton, WebElement emailErrorElement,
+			String expectedEmailErrorText) {
 
-		String[] listOfValidEmails = {"testadmin@gmail.com", "admin.mangotech@hotmail.com", "email@example.com", "Testaccount@yahoo.com"};
+		String[] listOfValidEmails = { "testadmin@gmail.com", "admin.mangotech@hotmail.com", "email@example.com",
+				"Testaccount@yahoo.com" };
 
 		for (String listOfValidEmail : listOfValidEmails) {
 
@@ -287,15 +291,16 @@ public class BaseClass {
 	public String invalidRandomEmailGenerator() {
 
 //      String SALTCHARS = "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "_-."; // use this statement for valid expression
-        String SALTCHARS = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"; // use this statement for invalid expression
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 10) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr;
+		String SALTCHARS = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"; // use this statement for
+																								// invalid expression
+		StringBuilder salt = new StringBuilder();
+		Random rnd = new Random();
+		while (salt.length() < 10) { // length of the random string.
+			int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+			salt.append(SALTCHARS.charAt(index));
+		}
+		String saltStr = salt.toString();
+		return saltStr;
 
 	}
 
