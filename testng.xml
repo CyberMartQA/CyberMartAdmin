@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Paypeople Automation Testing Functionalities">
+
+    <test name="Login, Sign-up and Apps Pages Automation Testing">
+         <classes>
+             <class name="firsttestngpackage.Sign_up_page"/>
+             <class name="firsttestngpackage.Sign_in_page"/>
+             <class name="firsttestngpackage.Apps_page"/>
+          </classes>
+     </test>
+     
+     <test name="Employees Page Automation Testing">
+         <classes>
+             <class name="firsttestngpackage.Employees"/>
+             <class name="firsttestngpackage.Employees_excel_upload"/>
+             <class name="payroll_module.Loan"/>
+          </classes>
+     </test>     
+</suite>
