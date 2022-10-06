@@ -83,7 +83,7 @@ public class UserTypesPage extends BaseClass {
 
 	public void enterListOfStaticInvalidEmails() {
 
-		staticInvalidEmailGenerator(emailField, btnSendOTP, errorEmail, "Email is invalid.");
+		staticInvalidEmailChecker(emailField, btnSendOTP, errorEmail, "Email is invalid.");
 
 	}
 

@@ -36,13 +36,13 @@ public class ForgotPasswordPage extends BaseClass {
 	WebElement errorEmail;
 
 	@FindBy(name = "email")
-	WebElement emailField;
+	WebElement inputFieldEmail;
 
 	@FindBy(xpath = "//div[contains(text(),'No user registered against this email')]")
 	WebElement errorEmailNotRegistered;
 
 	@FindBy(id = "mui-7")
-	WebElement backBtn;
+	WebElement buttonBack;
 
 	@FindBy(css = ".MuiGrid-root.MuiGrid-item.MuiGrid-grid-md-4.muiltr-9kaoqg")
 	WebElement pageImage;
@@ -76,14 +76,14 @@ public class ForgotPasswordPage extends BaseClass {
 
 	public void setEmail(String email) {
 
-		clearFieldData(emailField);
-		emailField.sendKeys(email);
+		clearFieldData(inputFieldEmail);
+		inputFieldEmail.sendKeys(email);
 
 	}
 
 	public void enterListOfStaticInvalidEmails() {
 
-		staticInvalidEmailGenerator(emailField, btnSendOTP, errorEmail, "Email is invalid.");
+		staticInvalidEmailChecker(inputFieldEmail, btnSendOTP, errorEmail, "Email is invalid.");
 
 	}
 
@@ -109,13 +109,13 @@ public class ForgotPasswordPage extends BaseClass {
 
 	public WebElement getInputFieldEmail() {
 
-		return emailField;
+		return inputFieldEmail;
 
 	}
 
 	public void clickBackButton() {
 
-		backBtn.click();
+		buttonBack.click();
 
 	}
 

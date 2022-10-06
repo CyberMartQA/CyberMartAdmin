@@ -247,17 +247,17 @@ public class BaseClass {
 	}
 
 //	CUSTOM METHOD TO ENTER INVALID STATIC EMAILS INTO EMAIL FIELD AT PAGE
-	public void staticInvalidEmailGenerator(WebElement emailField, WebElement submitButton,
+	public void staticInvalidEmailChecker(WebElement emailField, WebElement submitButton,
 			WebElement emailErrorElement, String expectedEmailErrorText) {
 
 		String[] listOfInvalidEmails = { "plainaddress123", "123@1123.1123", "a@a.a", "email@example,com",
 				"@example.com", "Joe Smith <email@example.com>", "email.example.com", "email.@example.com",
 				"email..email@example.com" };
 
-		for (String listOfInvalidEmail : listOfInvalidEmails) {
+		for (String invalidEmail : listOfInvalidEmails) {
 
 			emailField.clear();
-			emailField.sendKeys(listOfInvalidEmail);
+			emailField.sendKeys(invalidEmail);
 
 			submitButton.click();
 
@@ -274,10 +274,10 @@ public class BaseClass {
 		String[] listOfValidEmails = { "testadmin@gmail.com", "admin.mangotech@hotmail.com", "email@example.com",
 				"Testaccount@yahoo.com" };
 
-		for (String listOfValidEmail : listOfValidEmails) {
+		for (String validEmail : listOfValidEmails) {
 
 			emailField.clear();
-			emailField.sendKeys(listOfValidEmail);
+			emailField.sendKeys(validEmail);
 
 			submitButton.click();
 
